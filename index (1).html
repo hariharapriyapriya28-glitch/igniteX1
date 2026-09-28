@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SpacePulse – Free Class Locator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap">
+<style>
+:root{--bg:#f1f3fb;--card:#fff;--tx:#0f1530;--mu:#465073;--bd:#d5daea;--ac:#4f46e5;--gc:#0a7a43;--gb:#dcf6e6;--yc:#8a6100;--yb:#fff1c2;--rc:#b42318;--rb:#ffd6d2;--vc:#5b21b6;--vb:#ede4ff;--nc:#555;--nb:#e5e7ee}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e1f;--card:#161a30;--tx:#f4f6ff;--mu:#b6bddd;--bd:#2f3557;--ac:#a5b4fc;--gc:#6ee7a1;--gb:#123d28;--yc:#ffd86b;--yb:#43380f;--rc:#ff9d94;--rb:#521a1a;--vc:#d8c4ff;--vb:#3a2470;--nc:#bbb;--nb:#2a2e45}}
+:root[data-theme="dark"]{--bg:#0b0e1f;--card:#161a30;--tx:#f4f6ff;--mu:#b6bddd;--bd:#2f3557;--ac:#a5b4fc;--gc:#6ee7a1;--gb:#123d28;--yc:#ffd86b;--yb:#43380f;--rc:#ff9d94;--rb:#521a1a;--vc:#d8c4ff;--vb:#3a2470;--nc:#bbb;--nb:#2a2e45}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.5 'Plus Jakarta Sans',system-ui,Segoe UI,Roboto,sans-serif}
+.hero{color:#fff;padding:24px 16px 64px;background:radial-gradient(circle at 10% 10%,#06b6d488,transparent 40%),radial-gradient(circle at 90% 30%,#a855f788,transparent 42%),linear-gradient(135deg,#0f172a,#312e81)}
+.w{max-width:1040px;margin:auto}.top{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+h1{margin:0;font-size:34px;font-weight:800;letter-spacing:-.5px}.tag{margin:2px 0 0}
+.live{display:flex;align-items:center;gap:10px;background:#ffffff26;border:1px solid #ffffff55;border-radius:99px;padding:8px 16px;font-weight:800}
+.dot{width:12px;height:12px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 #4ade80;animation:pl 1.8s infinite}@keyframes pl{70%{box-shadow:0 0 0 12px #4ade8000}100%{box-shadow:0 0 0 0 #4ade8000}}
+.ask{display:flex;gap:8px;margin-top:18px;background:#fff;border-radius:18px;padding:8px;box-shadow:0 10px 30px #0006}
+.ask input{flex:1;min-width:0;border:0;background:none;font:inherit;font-weight:600;padding:10px 12px;color:#0f1530;outline:none}
+.ask button{font:inherit;font-weight:800;border:0;border-radius:12px;background:linear-gradient(135deg,#6366f1,#a855f7);color:#fff;padding:0 20px;cursor:pointer}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.ex button{font:inherit;font-size:14px;font-weight:700;border:1px solid #ffffff77;background:#ffffff1f;color:#fff;border-radius:99px;padding:6px 12px;cursor:pointer}
+.und{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;font-size:14px}.pill{background:#ffffff2e;border:1px solid #ffffff66;border-radius:99px;padding:3px 11px;font-weight:700}
+main{max-width:1040px;margin:-36px auto 0;padding:0 16px 30px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 2px 12px #0000000f}
+h2{margin:0 0 10px;font-size:21px}h3{margin:14px 0 8px;font-size:17px}.note{font-size:14px;color:var(--mu)}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.ctl label{font-size:12px;font-weight:800;letter-spacing:.5px;color:var(--mu);display:block;margin-bottom:2px}
+input,select{font:inherit;font-weight:700;background:var(--bg);color:var(--tx);border:2px solid var(--bd);border-radius:12px;padding:8px 10px}input[type=range]{padding:0;border:0;accent-color:var(--ac);width:100%}
+.bt{font:inherit;font-weight:700;font-size:14px;padding:9px 14px;border-radius:99px;border:2px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer}.bt.on{border-color:var(--ac);background:var(--ac);color:#fff}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.rm{border:2px solid var(--c,var(--bd));background:var(--b,var(--card));border-radius:16px;padding:12px;transition:transform .15s}.rm:hover{transform:translateY(-2px)}.rm.dim{opacity:.4}
+.rm.big{padding:16px}.rm .rh{display:flex;justify-content:space-between;gap:8px;align-items:center}.rm b{font-size:19px}
+.st{font-size:13px;font-weight:800;color:var(--c);text-align:right}
+.g{--c:var(--gc);--b:var(--gb)}.y{--c:var(--yc);--b:var(--yb)}.r{--c:var(--rc);--b:var(--rb)}.v{--c:var(--vc);--b:var(--vb)}.n{--c:var(--nc);--b:var(--nb)}
+.tg{font-size:14px;color:var(--mu);font-weight:600;margin:3px 0}.ln{font-size:15px;font-weight:600}
+.ok{display:inline-block;font-size:12px;font-weight:800;border-radius:99px;padding:2px 8px;margin:4px 4px 0 0;background:var(--bg)}.ok.a{color:var(--gc)}.ok.z{color:var(--rc)}
+.sc{font-size:13px;font-weight:800;color:var(--vc)}
+.rt{border:2px dashed var(--vc);border-radius:16px;padding:12px;margin-bottom:10px;background:var(--vb)}.rt div{padding:3px 0;font-weight:600}
+.bn{border-radius:14px;padding:12px 14px;margin-bottom:12px;font-weight:700;background:var(--yb);color:var(--yc);border:2px solid var(--yc)}
+.fh{display:flex;justify-content:space-between;margin:16px 0 8px;font-weight:800}
+@media(max-width:560px){h1{font-size:27px}.ask button{padding:0 12px}}
+</style></head><body>
+<div class="hero"><div class="w"><div class="top"><div><h1>📡 SpacePulse</h1><p class="tag">Timetables show where classes are. <b>SpacePulse reveals where possibilities are.</b></p></div>
+<div class="live"><span class="dot"></span><span id="tl">–</span></div></div>
+<div class="ask"><input id="q" placeholder="e.g. I need an AC room on the ground floor for my team for the next 2 hours" aria-label="Ask for a space"><button id="go">Find space ✨</button></div>
+<div class="ex"><button data-q="I need an AC room on the ground floor for me and my team for the next 2 hours">❄️ AC · ground floor · 2 h</button><button data-q="We are 5 people, need a quiet room on the second floor for 90 minutes">👥 5 people · quiet</button><button data-q="Any room after lunch for an hour">🍽️ After lunch</button></div>
+<div class="und" id="und"></div></div></div>
+<main>
+<div class="box"><h2>🎯 Your best spaces</h2><div id="res"></div></div>
+<div class="box"><h2>🎛️ Time &amp; filters</h2><div class="ctl">
+<div><label>DATE</label><input type="date" id="dv"></div>
+<div style="flex:1;min-width:200px"><label>TIME: <span id="tv"></span></label><input type="range" id="tm" min="540" max="1005" step="5"></div>
+<button class="bt" id="nw">📍 Now</button><button class="bt" id="dm">🎬 Demo: Mon 2:10 PM</button></div>
+<div class="ctl" style="margin-top:12px"><div><label>NEED (MIN)</label><input type="number" id="du" min="15" max="480" step="15" style="width:90px"></div>
+<div><label>MIN SEATS</label><input type="number" id="cp" min="0" max="200" style="width:90px"></div><button class="bt" id="ac">❄️ AC only</button><button class="bt" id="qt">🤫 Quiet (long window)</button><button class="bt" id="rs">↺ Reset</button></div>
+<div class="tabs" id="tabs"></div><div id="grid"></div></div>
+<p class="note" id="ft"></p>
+</main>
+<script>
+const OPEN=540,CLOSE=1010,P=[[540,590],[590,640],[650,700],[700,750],[750,800],[800,850],[850,900],[910,960],[960,1010]];
+const FL=["Ground","First","Second","Third","Fourth","Fifth"],DN=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const PF="Professional Ethics",UH="Universal Human Values-II",VR="Verbal Reasoning",SE="Social Engineering";
+const B2={A:"Transforms & BVP",B:"Biomedical Signals & Systems",C:"Electric & Electronic Circuits",D:"Digital Logic for Medical Systems",E:"Medical Physics",F:PF,G:UH,H:VR,I:SE,L:"DLMS / EEC Lab"};
+const DS2={...B2,B:"Solid State Devices",C:"Computer Org & Architecture",D:"Digital Logic Design",E:"EM Theory & Interference",L:"Devices & Digital IC Lab"};
+const B3={A:"Probability & Statistics",B:"Microcontrollers & Medical Apps",C:"Biomedical Signal Processing",D:"Biometrics",E:"Modern Wireless Comm",F:"Medical Imaging",G:"Analytical & Logical Thinking",H:"Indian Art Form",I:"Community Connect",L:"MPMC Lab",M:"Bio DSP Lab"};
+const E3={A:"Discrete Mathematics",B:"Microprocessor & Interfacing",C:"VLSI Design",D:"System & Network on Chip",E:"Machine Learning",F:"Community Connect",G:"Analytical & Logical Thinking",H:"Indian Art Form",L:"VLSI / MP Lab"};
+const E3D={...E3,D:"Machine Learning",E:"Database Design"};
+const E4={A:"Behavioural Psychology",B:"Wireless Comm & Antenna",C:"Computer Comm & Security",D:"Semiconductor Memory",E:"Scripting for EDA",F:"Machine Learning",L:"CCNS Lab"};
+/* v = home room of the section; m = slot → room override (from timetable notes such as G-625, H-TB-106, LAB-108/309) */
+const SEC={
+"II BME":{v:"602",m:{H:"TB-106",L:["107","309"]},s:B2,t:["E C I I - L L - -","C E B A - H H - -","B D A - - H G - -","A E B D - - - L L","F A C D - - - G G"]},
+"II ECE-DS A":{v:"416",m:{G:"602",H:"TB-106",L:["309","107"]},s:DS2,t:["E A I I - G G L L","C A E D - G - H H","A B C D - - H - -","B C A F - L L - -","D B E C - - - - -"]},
+"III BME":{v:"211",m:{G:"625",I:"108",L:"107",M:"108"},s:B3,t:["G G L L - E B F H","M M G - - C D A B","- - - - - C A F D","- - I - - A C E B","I I - - - F A D E"]},
+"III ECE-A":{v:"518",m:{G:"625",L:["108","309"]},s:E3,t:["E B B A - G G - -","H D B B - - G - -","C A D F - - - L L","A E C F - - - - -","D A E C - L L - -"]},
+"III ECE-B":{v:"518",m:{G:"625",L:["108","309"]},s:E3,t:["L L - - - E B A D","G G - - - F B D C","G - - - - B B A H","L L - - - A C E F","- - - - - C A E D"]},
+"III ECE-DS":{v:"519",m:{G:"625",L:["108","107"]},s:E3D,t:["E B C A - - - - -","C B D F - L L - -","H B A C - - - G G","A D E F - - - - -","D A E B - G - L L"]},
+"IV ECE-A":{v:"225",m:{L:"108"},s:E4,t:["C - A D - - - - -","C D B F - - - - -","B L E F - - - - -","F A E B - - - - -","C A D E - - - - -"]},
+"IV ECE-B":{v:"227",m:{L:"108"},s:E4,t:["C A E F - - - - -","C E F B - - - - -","C D A B - - - - -","D B L A - - - - -","E D F - - - - - -"]}};
+/* ROOMS: AC / seats / type are SAMPLE metadata (not in the timetables) – edit freely */
+const R={"108":{ty:"Lab",cap:40,ac:1},"107":{ty:"Lab",cap:40,ac:1},"309":{ty:"Lab",cap:45,ac:1},"625":{ty:"CDC Hall",cap:90,ac:1},"602":{ty:"Classroom",cap:70,ac:1},"TB-106":{ty:"CDC Hall",cap:60,ac:0},"518":{ty:"Classroom",cap:65,ac:1},"519":{ty:"Classroom",cap:65,ac:0},"227":{ty:"Classroom",cap:60,ac:0},"225":{ty:"Classroom",cap:60,ac:1},"416":{ty:"Classroom",cap:60,ac:0},"211":{ty:"Classroom",cap:70,ac:1}};
+for(const id in R){R[id].fl=id=="TB-106"?0:+id[0]-1;R[id].n=id=="TB-106"?"TB-106":"IST "+id}
+const $=i=>document.getElementById(i),pad=n=>String(n).padStart(2,"0");
+const BY={};for(const id in R)BY[id]=[[],[],[],[],[]];
+for(const sn in SEC){const c=SEC[sn];c.t.forEach((row,d)=>row.split(" ").forEach((k,p)=>{if(k=="-")return;[].concat(c.m[k]||c.v).forEach(r=>BY[r][d].push({s:P[p][0],e:P[p][1],sec:sn,k}))}))}
+let conf=0,cex="";for(const id in BY)BY[id].forEach((L,d)=>{L.sort((a,b)=>a.s-b.s);for(let i=0;i<L.length;i++)for(let j=i+1;j<L.length;j++)if(L[j].s<L[i].e&&L[j].sec!=L[i].sec){conf++;cex=cex||`${R[id].n} ${DN[d]} ${fm(L[j].s)}`}});
+function fm(m){const h=Math.floor(m/60);return(h%12||12)+":"+pad(m%60)+" "+(h<12?"AM":"PM")}
+const iso=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const dayIdx=()=>(new Date($("dv").value+"T00:00").getDay()+6)%7;
+let F={floor:null,dur:60,ac:0,cap:0,quiet:0},TM=850;
+function win(id,d,t){const L=d>4?[]:BY[id][d];let cur=null,nx=CLOSE;for(const x of L){if(x.s<=t&&t<x.e)cur=x;else if(x.s>t&&x.s<nx)nx=x.s}
+ if(cur){let e=cur.e;for(const x of L)if(x.s<=e&&x.e>e)e=x.e;return{free:0,cur,end:e}}return{free:1,until:nx}}
+const NW={a:1,an:1,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10},nv=x=>NW[x]||+x,NU="\\d+|two|three|four|five|six|seven|eight|nine|ten";
+const FW={ground:0,first:1,"1st":1,second:2,"2nd":2,third:3,"3rd":3,fourth:4,"4th":4,fifth:5,"5th":5};
+function parse(q){q=q.toLowerCase();const o={};let m;
+ if(/half an? hour/.test(q))o.dur=30;else if(m=q.match(/\b(\d+(?:\.\d+)?|an?|one|two|three|four|five|six)\s*(hours?|hrs?|hr|h|minutes?|mins?|min)\b/))o.dur=Math.round(nv(m[1])*(/^h/.test(m[2])?60:1));else if(/couple of hours/.test(q))o.dur=120;
+ if(m=q.match(new RegExp("\\bme and (?:my )?("+NU+") (?:friends|teammates|others|mates)")))o.cap=nv(m[1])+1;
+ else if(m=q.match(new RegExp("\\b(?:team|group) of ("+NU+")\\b|\\b("+NU+")[\\s-]*(?:people|persons|members?|students|friends|pax|of us)\\b")))o.cap=nv(m[1]||m[2]);
+ if(m=q.match(/\b(ground|first|second|third|fourth|fifth|1st|2nd|3rd|4th|5th)[\s-]*floor/))o.floor=FW[m[1]];else if(m=q.match(/\bfloor\s*(\d)\b/))o.floor=Math.min(5,+m[1]);
+ if(/\b(a\.?c|air[\s-]?condition\w*|cool)\b/.test(q)&&!/non[\s-]?a\.?c/.test(q))o.ac=1;
+ if(/quiet|silent|peace/.test(q))o.quiet=1;
+ if(/after lunch/.test(q))o.start=800;else if(m=q.match(/\b(?:at|from|after|by)\s+(\d{1,2})(?::(\d{2}))?\s*(am|pm)?(?!\s*(?:hours?|hrs?|minutes?|mins?|people|persons|members))\b/)){let h=+m[1];if(m[3]=="pm"&&h<12)h+=12;else if(m[3]=="am"&&h==12)h=0;else if(!m[3]&&h<9)h+=12;o.start=h*60+(+m[2]||0)}
+ return o}
+function ask(q){const o=parse(q),u=[];F={floor:null,dur:60,ac:0,cap:0,quiet:0};
+ if(o.floor!=null){F.floor=o.floor;u.push("🏢 "+FL[o.floor]+" floor")}if(o.ac){F.ac=1;u.push("❄️ AC")}if(o.cap){F.cap=o.cap;u.push("👥 "+o.cap+" people")}
+ if(o.quiet){F.quiet=1;u.push("🤫 quiet")}
+ if(o.dur){F.dur=o.dur;u.push("⏱️ "+o.dur+" min")}else u.push("⏱️ 60 min (assumed – not mentioned)");
+ if(o.start!=null){TM=Math.max(OPEN,Math.min(1005,o.start));u.push("🕒 from "+fm(TM))}
+ $("und").innerHTML=q.trim()?'<span class="pill">Understood:</span>'+u.map(x=>`<span class="pill">${x}</span>`).join(""):"";run()}
+function score(x,D){const r=x.r,f=x.fr;return Math.round(40*Math.min(1,f/D)+(x.ok.fl?20:0)+(x.ok.ac?20:0)+(x.ok.cap?10:0)+10*Math.min(1,Math.max(0,f-D)/(F.quiet?120:60)))}
+const nm=x=>`${x.r.n} · ${FL[x.r.fl]} floor`;
+const tags=x=>`${x.r.ty} · ${x.r.cap} seats${x.r.ac?" · ❄️ AC":" · no AC"}`;
+function room(x,cl,big,D){const w=x.w,f=x.fr,st=w.free?`Free until ${fm(w.until)}<br>${f} min`:`Occupied until ${fm(w.end)}`;
+ let ln="";if(!w.free){const nx=win(x.id,dayIdx(),w.end);ln=`${w.cur.sec} · ${SEC[w.cur.sec].s[w.cur.k]}<br>Free at ${fm(w.end)}${nx.free?" for "+(nx.until-w.end)+" min":""}`}
+ else ln=f>=D?"✔ Long enough for your session":`⚠ Only ${f} min – shorter than ${D} min`;
+ const ok=x.ok?`<div>${[["fl","Floor"],["ac","AC"],["cap","Seats"],["dur","Duration"]].map(([k,l])=>`<span class="ok ${x.ok[k]?"a":"z"}">${x.ok[k]?"✔":"✖"} ${l}</span>`).join("")}<span class="sc"> SpaceFit ${x.sc}/100</span></div>`:"";
+ return`<div class="rm ${cl} ${big?"big":""}"><div class="rh"><b>${x.r.n}</b><span class="st">${st}</span></div><div class="tg">${FL[x.r.fl]} floor · ${tags(x)}</div><div class="ln">${ln}</div>${ok}</div>`}
+function routes(A,t,D){const good=A.filter(x=>x.w.free&&x.ok.ac&&x.ok.cap),out=[];
+ for(const a of good){const aEnd=a.w.until-5;if(aEnd-t<20)continue;for(const b of good){if(b.id==a.id)continue;const wb=win(b.id,dayIdx(),aEnd);if(!wb.free)continue;const need=D-(aEnd-t);if(need<=0||wb.until-aEnd<need)continue;
+  out.push({a,b,aEnd,end:aEnd+need,sc:(a.ok.fl?15:0)+(b.ok.fl?15:0)+(a.r.fl==b.r.fl?10:0)+Math.min(20,(a.w.until-t)/6)+Math.min(10,(wb.until-aEnd-need)/6)})}}
+ return out.sort((x,y)=>y.sc-x.sc).slice(0,3)}
+function run(){const d=dayIdx(),t=TM,outH=t<OPEN||t>=CLOSE,D=Math.max(15,Math.min(F.dur,CLOSE-t));
+ $("tl").textContent=`${DN[d]} · ${fm(t)}`;$("tv").textContent=fm(t);$("tm").value=t;$("du").value=F.dur;$("cp").value=F.cap||"";
+ $("ac").classList.toggle("on",!!F.ac);$("qt").classList.toggle("on",!!F.quiet);
+ const A=Object.keys(R).map(id=>{const w=win(id,d,t),r=R[id],fr=w.free?w.until-t:0,ok={dur:fr>=D,fl:F.floor==null||r.fl==F.floor,ac:!F.ac||!!r.ac,cap:r.cap>=F.cap};const x={id,r,w,fr,ok};x.sc=score(x,D);x.perfect=w.free&&ok.dur&&ok.fl&&ok.ac&&ok.cap;return x});
+ const nf=A.filter(x=>x.w.free).length;let h="";
+ if(outH)h=`<div class="bn">Outside class hours (9:00 AM – 4:50 PM). Use the time slider or the Demo button.</div>`;
+ else{if(d>4)h+=`<div class="bn">Weekend – no classes are scheduled, so every room is free.</div>`;
+  if(D<F.dur)h+=`<div class="bn">Campus closes at 4:50 PM, so your request is shortened to ${D} min.</div>`;
+  const best=A.filter(x=>x.perfect).sort((a,b)=>b.sc-a.sc),oth=A.filter(x=>x.w.free&&!x.perfect&&x.fr>=10).sort((a,b)=>b.sc-a.sc);
+  if(best.length){h+=`<h3>⭐ Best match</h3><div class="grid">${room(best[0],"v",1,D)}</div>`;if(best.length>1)h+=`<h3>Also fully matching (${best.length-1})</h3><div class="grid">${best.slice(1,7).map(x=>room(x,"g",0,D)).join("")}</div>`}
+  else{h+=`<div class="bn">No single room matches everything for ${D} min.</div>`;const rt=routes(A,t,D);
+   if(rt.length)h+=`<h3>🧭 Uninterrupted Work Route</h3>`+rt.map(r=>`<div class="rt"><div>🕒 ${fm(t)}–${fm(r.aEnd)} → <b>${nm(r.a)}</b> (${tags(r.a)})</div><div>🕒 ${fm(r.aEnd)}–${fm(r.end)} → <b>${nm(r.b)}</b> (${tags(r.b)})</div><div class="note">Move at ${fm(r.aEnd)} – 5 min before the next class in ${r.a.r.n}. Total ${D} min uninterrupted.</div></div>`).join("");
+   if(oth.length)h+=`<h3>Closest alternatives</h3><div class="grid">${oth.slice(0,6).map(x=>room(x,x.fr>=D?"y":"y",0,D)).join("")}</div>`;
+   if(!rt.length&&!oth.length)h+=`<p class="note">Try a shorter duration, another floor, or a later time.</p>`}}
+ $("res").innerHTML=h;
+ const fls=[...new Set(A.map(x=>x.r.fl))].sort();
+ $("tabs").innerHTML=`<button class="bt ${F.floor==null?"on":""}" data-f="">All floors</button>`+fls.map(f=>`<button class="bt ${F.floor===f?"on":""}" data-f="${f}">${FL[f]}</button>`).join("");
+ $("grid").innerHTML=fls.filter(f=>F.floor==null||f==F.floor).map(f=>{const L=A.filter(x=>x.r.fl==f);return`<div class="fh"><span>${FL[f]} floor</span><span class="note">${L.filter(x=>x.w.free).length} of ${L.length} free now</span></div><div class="grid">${L.map(x=>{const c=outH?"n":!x.w.free?"r":x.fr>=D?"g":"y";return room(x,c+((F.ac&&!x.r.ac)||x.r.cap<F.cap?" dim":""),0,D)}).join("")}</div>`}).join("");
+ $("ft").innerHTML=`Based on the ${Object.keys(SEC).length} loaded timetables (${Object.keys(R).length} rooms). "Free" means unscheduled in the timetable, not guaranteed empty. AC, seats and floor (from the room number) are sample metadata – edit <code>R</code> in the code. ${conf?conf+" overlapping bookings found in the timetables (e.g. "+cex+")."+"":""}`;
+ $("und").dataset.free=nf}
+function setNow(){const n=new Date();$("dv").value=iso(n);TM=Math.max(OPEN,Math.min(1005,Math.round((n.getHours()*60+n.getMinutes())/5)*5));if(n.getHours()*60+n.getMinutes()>=CLOSE||n.getHours()<9){TM=n.getHours()*60+n.getMinutes()}run()}
+$("go").onclick=()=>ask($("q").value);$("q").onkeydown=e=>{if(e.key=="Enter")ask($("q").value)};
+document.querySelectorAll(".ex button").forEach(b=>b.onclick=()=>{$("q").value=b.dataset.q;ask(b.dataset.q)});
+$("dv").oninput=run;$("tm").oninput=e=>{TM=+e.target.value;run()};$("nw").onclick=setNow;
+$("dm").onclick=()=>{$("dv").value="2026-09-28";TM=850;run()};
+$("du").oninput=e=>{F.dur=Math.max(15,+e.target.value||60);run()};$("cp").oninput=e=>{F.cap=+e.target.value||0;run()};
+$("ac").onclick=()=>{F.ac=F.ac?0:1;run()};$("qt").onclick=()=>{F.quiet=F.quiet?0:1;run()};
+$("rs").onclick=()=>{F={floor:null,dur:60,ac:0,cap:0,quiet:0};$("q").value="";$("und").innerHTML="";run()};
+$("tabs").onclick=e=>{if(e.target.dataset.f===undefined)return;F.floor=e.target.dataset.f===""?null:+e.target.dataset.f;run()};
+$("dv").value="2026-09-28";setNow();
+</script></body></html>
